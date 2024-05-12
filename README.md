@@ -3,6 +3,9 @@ The Coco-Nut corpus is a corpus including Japanese voice and free-form texts des
 
 J-SpAW コーパスは，話者照合と音声なりすまし検出を目的とした，人間の実発話音声と攻撃者によるなりすまし音声を含むコーパスです．
 
+## Download / ダウンロード
+(TBD)
+
 ## Description / 内容
 　(TBD)
 
