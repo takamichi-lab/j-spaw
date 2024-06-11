@@ -1,61 +1,139 @@
-# J-SpAW: Japanese speech corpus for speaker verification and anti-spoofing / 話者照合となりすまし検出のための日本語音声コーパス
+# J-SpAW: Japanese corpus for speaker verification and spoofing attack detection, recorded in the wild / 話者照合となりすまし音声検出のための日本語音声コーパス
+English follows Japanese.
 
-J-SpAW コーパスは，話者照合と音声なりすまし検出を目的とした，人間の実発話音声と攻撃者によるなりすまし音声を含むコーパスです．
+J-SpAW (ジェイ・スポウ) コーパスは，話者照合となりすまし音声検出を目的とした，人間の実発話音声と攻撃者によるなりすまし音声を含むコーパスです．
 
+The J-SpAW (pronounced j-spo) is a corpus aiming at speaker verification and anti-spoofing verification. This includes bona fide speech and spoofing attacks.
+
+## Download / ダウンロード
+[Link](https://google.co.jp) (zip, xx GB)
 
 ## Description / 内容
-こちらのリポジトリでは、話者照合の評価のためのリストとLAタスクおよびPAタスクの評価のためのメタラベルを公開します。
-内容は以下のとおりです。
-* ASV_LIST.txt
-    * 話者照合のためのリスト(本人：7600ペア、他人：30000ペア)
-* metadata_LA.txt
-    * LAタスクのためのメタデータ
-* metadata_PA.txt
-    * PAタスクのためのメタデータ
+こちらのリポジトリでは，話者照合 (ASV) の評価のためのリストと，なりすまし音声検出における LA (logical attack) タスクおよび PA (physical attack) タスクの評価のためのメタラベルを公開します．
+内容は以下のとおりです．
+
+- wav/ ... 音声ファイルのディレクトリ
+    - ASV/*.wav ... 話者照合 (ASV)
+    - LA/*.wav ... なりすまし音声検出 LA タスク
+    - PA/*.wav ... なりすまし音声検出 PA タスク
+- eval_package/
+    - ASV_trial.txt ... 話者照合のためのトライアルリスト(本人同士：7600ペア, 他人同士：30000ペア)
+    - metadata_LA.txt ... LAタスクのためのメタデータ(実発話：800トライアル, なりすまし：1600トライアル)
+    - metadata_PA.txt ... PAタスクのためのメタデータ(実発話：800トライアル, なりすまし：6300トライアル)
+    - config.py ... ASVspoof2021のeval-packageを本データベースに適用させるためのconfigファイル
 
 
-音声は情報科学研究データリポジトリ(-----)を通しての配布を予定しています。
+英語
 
 
-## 音声ファイル名について
-音声ファイルの命名規則は以下のようになっています。
+## メタラベルについて
+metadata_LA.txt, metadata_PA.txtはASVspoof2021におけるメタラベルの書き方を参考にしています．
+これらを利用することで, ASVspoof2021のeval-packageでEER, t-DCFの評価を行うことができます．
+その際, J-SpAWの各環境ごとにEER, t-DCFの評価を行いたい場合はASVspoof2021のeval-packageのconfig.pyを, 本パッケージに含まれているconfig.pyと差し替えてください．
+
+メタラベルで使われている各記号の意味を説明します．
+
+### LAタスク
+```sh
+F001 F001_R1_E2_L1_BT - E2 L1 spoof notrim eval
+```
+* `F001`: 話者IDまたはなりすまし対象話者ID
+* `F001_R1_E2_L1_BT`: トライアルID
+* `-`：ASVspoof2021におけるメタラベルと列数を合わせるための調整
+* `E2`：なりすまし音声を生成する際に用いた実発話の収録環境
+    * `E1`: 静かな室内
+    * `E2`: 空調が動作している室内
+    * `E3`: 背景音楽が流れている室内
+    * `E4`: 屋外
+* `L1`：音声合成手法
+    * `L1`：VALL-E X [1]
+    * `L2`：TTS [2]
+* `spoof`：正解ラベル
+    * `bonafide`：実発話
+    * `spoof`：なりすまし音声
+* `notrim`：非発話区間のトリミングの有無
+    * `notrim`：トリミングなし(本データベースではnotrimのみ)
+* `eval`：サブセットの種類
+    * `eval`：評価データ(本データベースではevalのみ)
+
+[1] Ziqiang Zhang, Long Zhou, et al, ”speak foreign languages with your own voice: Cross-lingual neural codec language modeling,” arXiv:2303.03936(2023)
+
+[2] Kenntaro Seki, Shinnosuke Takamichi, Takaaki Saeki, and Hiroshi Saruwatari, ”text-to-speech synthesis from dark data with evaluation-in-the-loop data selection,” Proc. 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).
+
+### PAタスク
+```sh
+F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
+```
+
+
+* `F001`: 話者IDまたはなりすまし対象話者ID
+* `F001_R1_E2_M3_s1_r1_e1_m1_AA`: トライアルID
+* なりすまし対象話者の実発話収録
+  * `R1 - R4`: 収録場所ID
+  * `M1 - M3`: 収録機器ID
+  * `E1 - E4`: 収録環境ID
+* 攻撃者によるなりすまし音声収録
+  * `r1 - r4`: 収録場所ID
+  * `m1 - m3`: 収録機器ID
+  * `s1 - s4`: 再生機器ID
+  * `e1 - e4`: 収録環境ID
+* `spoof`：正解ラベル
+    * `bonafide`：実発話
+    * `spoof`：なりすまし音声
+* `notrim`：非発話区間のトリミングの有無
+    * `notrim`：トリミングなし(本データベースではnotrimのみ)
+* `eval`：サブセットの種類
+    * `eval`：評価データ(本データベースではevalのみ)
+    --------------------------------------改行入れる
+各IDの詳細は以下の音声ファイルの命名規則に記述してあります．
+
+## 音声ファイルの命名規則
+音声ファイルの命名規則は以下のようになっています．
 
 ### ASV
 ```sh
-F001_R1_E1_M1_AA.wav
+{spkr_id}_{room_id}_{env_id}_{mic_id}_{sent_id}.wav
 ```
-* `F001`:話者ID
-* `R1`：収録場所(実収録)
-* `E1`：収録環境(実収録)
-* `M1`：収録機器(実収録)
-* `AA`：発話内容
+* `{spkr_id}`:話者ID (F001--F019, M001--M021 の 40 話者)
+* `{room_id}`：収録場所ID (実発話収録, R1--R4 の 4 場所)
+* `{env_id}`：収録環境ID (実発話収録, E1--E4 の 4 環境)
+* `{mic_id}`：収録機器ID (実発話収録, M1--M3 の 3 種類)
+* `{sent_id}`：発話テキストID (AA--BX の 50 文)
+
 ### LA
 ```sh
-F001_R1_E1_L1_BT.wav
+{spkr_id}_{room_id}_{env_id}_{LA_method_id}_{sent_id}.wav
 ```
-* `F001`:ターゲット話者ID
-* `R1`：ターゲット音声収録場所
-* `E1`：ターゲット音声収録環境
-* `L1`：合成手法
-* `AA`：発話内容
+* `{spkr_id}`:話者ID (F001-F019, M001-M021 の 40 話者)
+* `{room_id}`：収録場所ID (実発話収録, R1--R4 の 4 場所)
+* `{env_id}`：収録環境ID (実発話収録, E1--E4 の 4 環境)
+* `{LA_method_id}`：音声合成手法 (L1--L2 の 2 種類)
+* `{sent_id}`：発話テキストID (BT--BX の 5 文)
+
 ### PA
+```sh
+{spkr_id}_{room_id}_{env_id}_{mic_id}_{loudspeaker_id}_{room_id_replay}_{env_id_replay}_{mic_id_replay}_{sent_id}.wav
+```
 ```sh
 F001_R1_E1_M3_s1_r1_e1_m1_AA.wav
 ```
-* `F001`:ターゲット話者ID
-* `R1`：ターゲット音声収録場所
-* `E1`：ターゲット音声収録環境
-* `M3`：ターゲット音声収録機器
-* `s1`：盗聴音声再生機器
-* `r1`：なりすまし音声収録場所(PA)
-* `e1`：なりすまし音声収録環境(PA)
-* `m1`：なりすまし音声収録機器
-* `AA`：発話内容
+* なりすまし対象話者の実発話収録
+    * `{spkr_id}`：話者ID (F001--F019, M001--M021 の 40 話者)
+    * `{room_id}`：収録場所ID (実発話収録, R1--R4 の 4 場所)
+    * `{env_id}`：収録環境ID (実発話収録, E1--E4 の 4 環境)
+    * `{mic_id}`：収録機器ID (実発話収録, M1--M3 の 3 種類)
+* 攻撃者によるなりすまし音声収録
+    * `{loudspeaker_id}`：再生機器ID (再収録, s1--s4 の 4 種類)
+    * `{room_id_replay}`：収録場所ID (再収録, r1 のみ)
+    * `{env_id_replay}`：収録環境ID (再収録, e1--e3 の 3 種類)
+    * `{mic_id_replay}`：収録機器ID (再収録, m1--m2 の 2種類)
+    * `{sent_id}`：発話テキストID (AA--xx の 25 文)
 
 
-それぞれのIDの詳細は以下のようになっています。
+それぞれのIDの詳細は以下のようになっています．
 * 収録場所：縦 (m) x 横 (m) x 高さ (m)
-    * `R1,r1`: 00 x 00 x 00 
+    * `R1`: 00 x 00 x 00 
+    * `r1`：11.0 x 8.0 x 2.6
     * `R2,r2`: 屋外1
     * `R3,r3`: 10.8 x 2.0 x 2.8
     * `R4,r4`: 屋外2
@@ -69,63 +147,13 @@ F001_R1_E1_M3_s1_r1_e1_m1_AA.wav
     * `E3,e3`: 音楽が流れている室内
     * `E4,e4`: 屋外
 * 再生機器
-    * `s1`: BOSE Slink Micro 
+    * `s1`: Bose Soundlink Micro Bluetooth Speaker Bundle
     * `s2`: iPad mini (第5世代)
-    * `s3`: MacBook Pro
+    * `s3`: MacBook Pro (13インチ, M2, 2022)
     * `s4`: Sony SRS-ZR7
 
 
-## メタラベルについて
-metadata_LA.txt、metadata_PA.txtはASVspoof2021におけるメタラベルの書き方を参考にしています。
-またこれらを利用することで、ASVspoof2021のeval-packageでEER、t-DCFの評価を行うことができます。
-その際、J-SpAWの各環境ごとにEER,t-DCFの評価を行いたい場合はASVspoof2021/eval-package/config.pyを修正してください。
 
-最初の行を使用してメタラベルの意味を説明します。
-
-### LA
-```sh
-F001 F001_R1_E2_L1_BT - E2 L1 spoof notrim eval
-```
-* `F001`: 話者IDまたはターゲット話者ID
-* `F001_R1_E2_L1_BT`: トライアルID
-* `-`：ASVspoof2021におけるメタラベルとの調整
-* `E2`：合成に用いた実発話の収録環境(実収録)
-    * `E1`: 静かな室内
-    * `E2`: 空調が動作している室内
-    * `E3`: 音楽が流れている室内
-    * `E4`: 屋外
-* `L1`：合成手法
-    * `L1`：VALL-E X
-    * `L2`：TTS
-* `spoof`：キー
-    * `bonafide`：実発話
-    * `spoof`：なりすまし音声
-* `notrim`：非発話区間のトリミングなし
-* `eval`：サブセットの種類
-
-
-### PA
-```sh
-F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
-```
-
-
-* `F001`: 話者IDまたはターゲット話者ID
-* `F001_R1_E2_M3_s1_r1_e1_m1_AA`: トライアルID
-* 実発話収録環境
-  * `R1 - R4`: 収録場所
-  * `M1 - M3`: 収録機器
-  * `E1 - E4`: 収録環境
-* なりすまし音声収録環境
-  * `r1 - r4`: 収録場所
-  * `m1 - m3`: 収録機器
-  * `s1 - s4`: 再生機器
-  * `e1 - e4`: 収録環境
-* `spoof`：キー
-    * `bonafide`：実発話
-    * `spoof`：なりすまし音声
-* `notrim`：非発話区間のトリミングなし
-* `eval`：サブセットの種類
 
 
 ## Terms of use / 使い方
