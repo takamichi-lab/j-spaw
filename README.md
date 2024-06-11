@@ -40,8 +40,8 @@ metadata_LA.txt, metadata_PA.txtはASVspoof2021におけるメタラベルの書
 * `1`：正解ラベル
     * `1`：本人同士
     * `0`：他人同士
-* `F001_R1_E2_M2_BT.wav`：登録話者
-* `F001_R1_E2_M2_BU.wav`：照合話者
+* `F001_R1_E2_M2_BT.wav`：登録発話
+* `F001_R1_E2_M2_BU.wav`：照合発話
 
 ### LAタスク(metadata_LA.txt)
 ```sh
@@ -134,7 +134,7 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
     * `{loudspeaker_id}`：再生機器ID (再収録, s1--s4 の 4 種類)
     * `{room_id_replay}`：収録場所ID (再収録, r1 のみ)
     * `{env_id_replay}`：収録環境ID (再収録, e1--e3 の 3 種類)
-    * `{mic_id_replay}`：収録機器ID (再収録, m1--m2 の 2種類)
+    * `{mic_id_replay}`：収録機器ID (再収録, m1--m2 の 2 種類)
     * `{sent_id}`：発話テキストID (AA--xx の 25 文)
 
 
