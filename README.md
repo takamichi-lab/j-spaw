@@ -33,7 +33,17 @@ metadata_LA.txt, metadata_PA.txtはASVspoof2021におけるメタラベルの書
 
 メタラベルで使われている各記号の意味を説明します．
 
-### LAタスク
+### 話者照合タスク(ASV_trial.txt)
+```sh
+1 F001_R1_E2_M2_BT.wav F001_R1_E2_M2_BU.wav
+```
+* `1`：正解ラベル
+    * `1`：本人同士
+    * `0`：他人同士
+* `F001_R1_E2_M2_BT.wav`：登録話者
+* `F001_R1_E2_M2_BU.wav`：照合話者
+
+### LAタスク(metadata_LA.txt)
 ```sh
 F001 F001_R1_E2_L1_BT - E2 L1 spoof notrim eval
 ```
@@ -60,7 +70,7 @@ F001 F001_R1_E2_L1_BT - E2 L1 spoof notrim eval
 
 [2] Kenntaro Seki, Shinnosuke Takamichi, Takaaki Saeki, and Hiroshi Saruwatari, ”text-to-speech synthesis from dark data with evaluation-in-the-loop data selection,” Proc. 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).
 
-### PAタスク
+### PAタスク(metadata_PA.txt)
 ```sh
 F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
 ```
@@ -84,7 +94,8 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
     * `notrim`：トリミングなし(本データベースではnotrimのみ)
 * `eval`：サブセットの種類
     * `eval`：評価データ(本データベースではevalのみ)
-    --------------------------------------改行入れる
+  
+<br>
 各IDの詳細は以下の音声ファイルの命名規則に記述してあります．
 
 ## 音声ファイルの命名規則
@@ -113,9 +124,6 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
 ### PA
 ```sh
 {spkr_id}_{room_id}_{env_id}_{mic_id}_{loudspeaker_id}_{room_id_replay}_{env_id_replay}_{mic_id_replay}_{sent_id}.wav
-```
-```sh
-F001_R1_E1_M3_s1_r1_e1_m1_AA.wav
 ```
 * なりすまし対象話者の実発話収録
     * `{spkr_id}`：話者ID (F001--F019, M001--M021 の 40 話者)
