@@ -9,7 +9,7 @@ The J-SpAW (pronounced j-spo) is a corpus aiming at speaker verification and ant
 [Link](https://google.co.jp) (zip, xx GB)
 
 ## Description / 内容
-こちらのリポジトリでは，話者照合 (ASV) の評価のためのリストと，なりすまし音声検出における LA (logical attack) タスクおよび PA (physical attack) タスクの評価のためのメタラベルを公開します．
+こちらのリポジトリでは，話者照合 (ASV) の評価のためのリストと，なりすまし音声検出における LA (logical attack) タスクおよび PA (physical attack) タスクの評価のためのメタラベルを公開します．  
 内容は以下のとおりです．
 
 - wav/ ... 音声ファイルのディレクトリ
@@ -27,8 +27,8 @@ The J-SpAW (pronounced j-spo) is a corpus aiming at speaker verification and ant
 
 
 ## メタラベルについて
-metadata_LA.txt, metadata_PA.txtはASVspoof2021におけるメタラベルの書き方を参考にしています．
-これらを利用することで, ASVspoof2021のeval-packageでEER, t-DCFの評価を行うことができます．
+metadata_LA.txt, metadata_PA.txtはASVspoof2021におけるメタラベルの書き方を参考にしています．  
+これらを利用することで, ASVspoof2021のeval-packageでEER, t-DCFの評価を行うことができます．  
 その際, J-SpAWの各環境ごとにEER, t-DCFの評価を行いたい場合はASVspoof2021のeval-packageのconfig.pyを, 本パッケージに含まれているconfig.pyと差し替えてください．
 
 メタラベルで使われている各記号の意味を説明します．
