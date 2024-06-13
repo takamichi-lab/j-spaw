@@ -3,17 +3,17 @@
 
 J-SpAW (ジェイ・スポウ) コーパスは，話者照合となりすまし音声検出を目的とした，人間の実発話音声と攻撃者によるなりすまし音声を含むコーパスです．
 
-## ダウンロード
-[リンク](https://ss-takashi.sakura.ne.jp/corpus/j-spaw/j-spaw_ver1.zip) (zip, xx GB)
+## 音声ファイルのダウンロード
+[リンク](https://ss-takashi.sakura.ne.jp/corpus/j-spaw/j-spaw_ver1.zip) (zip, 4.9 GB)
 
 ## 内容
 このリポジトリでは，話者照合 (ASV) の評価のためのリストと，なりすまし音声検出における LA (logical attack) タスクおよび PA (physical attack) タスクの評価のためのメタラベルを提供します。内容は以下のとおりです．
 
-- `wav/`：音声ファイルのディレクトリ
+- `wav/`：音声ファイルのディレクトリ（上記URLよりダウンロードして解凍したのち、 `wav/' 以下においてください）
     - `ASV/*.wav`：話者照合 (ASV)
     - `LA/*.wav`：なりすまし音声検出 LA タスク
     - `PA/*.wav`：なりすまし音声検出 PA タスク
-- `eval_package/`
+- `eval-package/`
     - `ASV_trial.txt`：話者照合のためのトライアルリスト(本人同士：7600ペア, 他人同士：30000ペア)
     - `metadata_LA.txt`：LAタスクのためのメタデータ(実発話：800トライアル, なりすまし：1600トライアル)
     - `metadata_PA.txt`：PAタスクのためのメタデータ(実発話：800トライアル, なりすまし：6300トライアル)
@@ -114,7 +114,7 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
     * `{room_id_replay}`：収録場所ID (再収録, r1 のみ)
     * `{env_id_replay}`：収録環境ID (再収録, e1--e3 の 3 種類)
     * `{mic_id_replay}`：収録機器ID (再収録, m1--m2 の 2 種類)
-    * `{sent_id}`：発話テキストID (AA--xx の 25 文)
+    * `{sent_id}`：発話テキストID (AA--AY の 25 文)
 
 ## タスク共通の詳細
 * 収録場所ID：縦 (m) x 横 (m) x 高さ (m)

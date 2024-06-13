@@ -3,13 +3,13 @@
 
 The J-SpAW (pronounced j-spou) corpus is designed for speaker verification and anti-spoofing verification, containing both bona fide speech and spoofing attacks.
 
-## Download
-[Link](https://ss-takashi.sakura.ne.jp/corpus/j-spaw/j-spaw_ver1.zip) (zip, xx GB)
+## Download speech files
+[Link](https://ss-takashi.sakura.ne.jp/corpus/j-spaw/j-spaw_ver1.zip) (zip, 4.9 GB)
 
 ## Contents
 This repository provides lists for evaluating speaker verification (ASV) and meta-labels for evaluating logical attack (LA) and physical attack (PA) tasks in spoofing detection. The contents are as follows:
 
-- `wav/`: Directory of speech files
+- `wav/`: Directory of speech files (download from the above URL, unzip, and place data into `wav/`.)
   - `ASV/*.wav`: Speaker verification (ASV)
   - `LA/*.wav`: Spoofing detection (LA task)
   - `PA/*.wav`: Spoofing detection (PA task)
@@ -113,7 +113,7 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
   * `{room_id_replay}`: Recording room ID (for re-recording, only r1)
   * `{env_id_replay}`: Recording environment ID (for re-recording, e1--e3)
   * `{mic_id_replay}`: Recording microphone ID (for re-recording, m1--m2)
-  * `{sent_id}`: Sentence ID (25 sentences: AA--AX)
+  * `{sent_id}`: Sentence ID (25 sentences: AA--AY)
 
 ## Common Details Across Tasks
 * Recording room ID: Dimensions (length x width x height in meters)
