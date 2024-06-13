@@ -118,7 +118,7 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
 
 ## タスク共通の詳細
 * 収録場所ID：縦 (m) x 横 (m) x 高さ (m)
-    * `R1`：00 x 00 x 00 
+    * `R1`：4.4 x 7.4 x 2.5 
     * `r1`：11.0 x 8.0 x 2.6
     * `R2,r2`：屋外1
     * `R3,r3`：10.8 x 2.0 x 2.8
@@ -131,7 +131,7 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
     * `E1,e1`：静かな室内
     * `E2,e2`：空調が動作している室内
     * `E3,e3`：音楽が流れている室内
-    * `E4,e4`：屋外
+    * `E4`：屋外
 * 再生機器ID：
     * `s1`：Bose Soundlink Micro Bluetooth Speaker Bundle
     * `s2`：iPad mini (第5世代)
