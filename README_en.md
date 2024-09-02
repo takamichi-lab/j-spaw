@@ -123,8 +123,8 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
   * `R3, r3`: 10.8 x 2.0 x 2.8
   * `R4, r4`: Outdoor 2
 * Recording microphone ID:
-  * `M1, m1`: iPhone8 
-  * `M2, m2`: Pixel3
+  * `M1, m1`: Pixel3 
+  * `M2, m2`: iPhone8
   * `M3, m3`: iPad mini (5th generation)
 * Recording environment ID:
   * `E1, e1`: Quiet indoor
