@@ -6,7 +6,7 @@ The J-SpAW (pronounced j-spou) corpus is designed for speaker verification and a
 ## Download speech files
 [Link](https://ss-takashi.sakura.ne.jp/corpus/j-spaw/j-spaw_ver1.zip) (zip, 4.9 GB)
 
-[Link](https://tmpuc.box.com/s/1dv4top244qp1s705jte7uat921bht1n) (zip,8.0GB)
+[Link](https://tmpuc.box.com/s/1dv4top244qp1s705jte7uat921bht1n) (zip,8.0GB) Interspeech version
 
 ## Contents
 This repository provides lists for evaluating speaker verification (ASV) and meta-labels for evaluating logical attack (LA) and physical attack (PA) tasks in spoofing detection. The contents are as follows:
