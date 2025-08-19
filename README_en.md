@@ -4,8 +4,6 @@
 The J-SpAW (pronounced j-spou) corpus is designed for speaker verification and anti-spoofing verification, containing both bona fide speech and spoofing attacks.
 
 ## Download speech files
-[Link](https://ss-takashi.sakura.ne.jp/corpus/j-spaw/j-spaw_ver1.zip) (zip, 4.9 GB)
-
 [Link](https://tmpuc.box.com/s/1dv4top244qp1s705jte7uat921bht1n) (zip, 8.0 GB) Interspeech version
 
 ## Contents
