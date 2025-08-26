@@ -152,6 +152,8 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
   * `s3`: MacBook Pro (13-inch, M2, 2022)
   * `s4`: Sony SRS-ZR7
 
+## Result
+
 ## License
 - For non-commercial use only
 
