@@ -153,6 +153,8 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
   * `s4`: Sony SRS-ZR7
 
 ## Result
+Some of the results from Interspeech were incorrect. The latest results are below.
+
 
 ## License
 - For non-commercial use only
