@@ -32,6 +32,21 @@ This repository provides lists for evaluating speaker verification (ASV) and met
 * `F001_R1_E2_M2_BT.wav`: Enrollment speech
 * `F001_R1_E2_M2_BU.wav`: Test speech
 
+### PA Task (PA_eval.txt)
+```sh
+F001_R1_E1_M3_s1_r1_e1_m1_AA
+```
+* `F001_R1_E2_M3_s1_r1_e1_m1_AA`: Trial ID
+* Bona fide speech recording of the target speaker
+  * `R1 - R4`: Recording room ID
+  * `M1 - M3`: Recording microphone ID
+  * `E1 - E4`: Recording environment ID
+* Spoofed speech recording by the attacker
+  * `r1 - r4`: Recording room ID
+  * `m1 - m3`: Recording microphone ID
+  * `s1 - s4`: Playback loudspeaker ID
+  * `e1 - e4`: Recording environment ID
+
 ### LA Task (metadata_LA.txt)
 ```sh
 F001 F001_R1_E2_L1_BT - E2 L1 spoof notrim eval
