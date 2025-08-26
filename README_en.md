@@ -147,7 +147,6 @@ F001 F001_R1_E2_M3_s1_r1_e1_m1_AA R1 M3 E2 r1 m1 s1 e1 spoof notrim eval
 - Sayaka Shiota (Tokyo Metropolitan University)
 
 ## Papers
-- 菅野 滉大, 高道 慎之介, 塩田 さやか, "J-SpAW：話者照合となりすまし検出のための日本語音声コーパス," 情報処理学会 音声言語処理研究会, 2024
 - Sayaka Shiota, Suzuka Horie, Kouta Kanno, Shinnosuke Takamichi, "Japanese speaker verification and spoofing attacks recorded in-the-wild dataset," Interspeech, 2025.
 
 ## References
