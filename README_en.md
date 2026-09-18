@@ -13,10 +13,11 @@ This repository provides lists for evaluating speaker verification (ASV) and met
   - `ASV/*.wav`: Speaker verification (ASV)
   - `LA/*.wav`: Spoofing detection (LA task)
   - `PA/*.wav`: Spoofing detection (PA task)
-- `eval_package/`
+- `eval-package/`
   - `ASV_trial.txt`: Trial list for ASV task (7600 genuine pairs, 30000 impostor pairs)
   - `metadata_LA.txt`: Metadata for LA task (800 genuine trials, 1600 spoofed trials)
   - `metadata_PA.txt`: Metadata for PA task (800 genuine trials, 6300 spoofed trials)
+  - `transcriptions.csv`: Transcriptions of the 50 sentences (sentence ID AA--BX and text)
   - `config.py`: Configuration file to apply the ASVspoof2021 eval-package to this corpus
 
 ## Meta-labels
